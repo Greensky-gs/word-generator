@@ -1,3 +1,32 @@
 class WordGenerator {
-    constructor(data) {}
+    constructor(data) {
+        this.letters = "";
+        this.data = data;
+        this.size = data.length || 16;
+    }
+    init() {
+      if (this.data.letters == true) this.letters = "abcdefghijklmnopqrstuvwx";
+      if (this.data.capitals == true) this.letters+= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      if (this.data.numbers == true) this.letters+="012345678";
+      if (this.data.special == true) this.letters+="+×÷=/_€£¥₩!@#$%^&*()-'\":;,?`~\\|<>{}[]]}";
+      if (this.data.includeSpaces == true) this.letters += " ";
+      if (this.data.overflow !== undefined) {
+        for (let i = 0; i < this.data.overflow.length; i++) {
+          let charact = this.data.overflow[i];
+          if (!this.letters.includes(charact)) this.letters+= charact;
+        }
+      };
+    }
+    generate() {
+        let word = "";
+        for (let i = 0; i < this.size; i++) {
+          let charact = this.letters[Math.floor(Math.random() * this.letters.length)];
+          
+          word += charact;
+        };
+        
+        return word;
+    }
 };
+
+module.exports = WorsGenerator();
