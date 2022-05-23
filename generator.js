@@ -1,0 +1,3 @@
+class WordGenerator {
+    constructor(data) {}
+};
