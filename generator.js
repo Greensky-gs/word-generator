@@ -18,6 +18,8 @@ class WordGenerator {
       };
     }
     generate() {
+        this.init();
+
         let word = "";
         for (let i = 0; i < this.size; i++) {
           let charact = this.letters[Math.floor(Math.random() * this.letters.length)];
